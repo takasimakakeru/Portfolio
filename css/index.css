@@ -1,0 +1,176 @@
+/* 全体のリセットと基本設定 */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { 
+    font-family: 'Helvetica Neue', Arial, sans-serif; 
+    color: #333; 
+    background-color: #faf7f2; 
+    line-height: 1.6; 
+}
+html {
+  scroll-behavior: smooth; /* スクロールを滑らかにする */
+}
+/* 🌟 グローバルな文字サイズ（基本テキスト） */
+p, td, th {
+    /* スマホで14px 〜 PCで16px（読みやすさ重視） */
+    font-size: clamp(0.875rem, 0.8rem + 0.32vw, 1rem);
+}
+
+/* メインビジュアル */
+.hero {
+    position: relative;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    padding: 20px;
+}
+.hero h1 { 
+    /* 🌟 スマホで28px 〜 PCで48px */
+    font-size: clamp(1.75rem, 1.21rem + 2.3vw, 3rem); 
+    margin-bottom: 10px; 
+    letter-spacing: 2px;
+    position: relative; 
+    z-index: 1;         
+}
+.hero p { 
+    /* 🌟 スマホで15px 〜 PC0.5で18px */
+    font-size: clamp(0.938rem, 0.86rem + 0.34vw, 1.125rem); 
+    margin-bottom: 20px; 
+    position: relative; 
+    z-index: 1;         
+}
+.hero img {
+    position: absolute; 
+    top: 0;             
+    left: 0;            
+    width: 100%;        
+    height: 100%;       
+    object-fit: cover;  
+    z-index: -1;        
+}
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: 0; 
+}
+
+.btn { 
+    display: inline-block; 
+    background-color: #8c6239; 
+    color: #fff; 
+    padding: 12px 30px; 
+    text-decoration: none; 
+    border-radius: 25px; 
+    font-weight: bold; 
+    transition: 0.3s; 
+    position: relative; 
+    z-index: 1;         
+}
+.btn:hover { background-color: #6d4a2a; }
+
+/* コンテンツエリア全体 */
+.concept, .menu, .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+    /* 🌟 セクション間の上下余白も可変に（スマホで40px 〜 PCで80px） */
+    margin-top: clamp(2.5rem, 1.42rem + 4.59vw, 5rem);
+}
+
+/* 各見出し（H2）の共通設定 */
+h2 { 
+    text-align: center; 
+    /* 🌟 スマホで24px 〜 PCで32px */
+    font-size: clamp(1.5rem, 1.28rem + 0.92vw, 2rem); 
+    margin-bottom: clamp(1.25rem, 0.91rem + 1.43vw, 2rem); /* 下の余白も可変 */
+    color: #5c3a21; 
+    position: relative; 
+    padding-bottom: 10px; 
+}
+h2::after { 
+    content: ''; 
+    position: absolute; 
+    bottom: 0; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    width: 50px; 
+    height: 2px; 
+    background-color: #8c6239; 
+}
+
+/* コンセプト */
+.concept {
+    text-align: center; /* 左右のバラつきを綺麗に整えました */
+}
+.concept h1 {
+    /* 🌟 スマホで20px 〜 PCで28px */
+    font-size: clamp(1.25rem, 1.03rem + 0.92vw, 1.75rem);
+    margin-bottom: 15px;
+    color: #5c3a21;
+}
+
+/* テーブル（メニュー＆アクセス共通） */
+/* テーブル（メニュー＆アクセス共通） */
+table {
+    width: 100%; /* 横幅いっぱいに広げる */
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    border: none; /* 枠線をモダンで綺麗な見た目に変更 */
+}
+th, td {
+    padding: clamp(0.625rem, 0.46rem + 0.71vw, 1rem); /* 🌟 パディングもスマホで狭く、PCで広く */
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+/* メニューテーブル専用：一番上の行の背景色を設定 */
+.menu table tr:first-child {
+    background-color: #f3ede4;
+    color: #5c3a21;
+    font-weight: bold;
+}
+
+/* アクセステーブル専用：一番上の行（th）の背景色を設定 */
+.info-table tr:first-child {
+    background-color: #f3ede4;
+    color: #5c3a21;
+}
+/* 列の幅を4等分（25%ずつ）にして綺麗に整える */
+.info-table th, .info-table td {
+    width: 25%;
+}
+.access {
+    margin-top: 10vh;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.map p {
+    left: auto;
+    right:auto;
+    font-size: 2rem;
+}
+/* フッター */
+footer { 
+    text-align: center; 
+    padding: 30px; 
+    background-color: #332211; 
+    color: #fff; 
+    font-size: 0.9rem;
+    margin-top: clamp(2.5rem, 1.42rem + 4.59vw, 5rem); /* 上に可変の余白を追加 */
+}

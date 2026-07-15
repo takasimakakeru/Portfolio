@@ -413,13 +413,109 @@ th {
   text-align: left;
   font-weight: bold;
 }
+/* ==========================================================================
+   1. 全体設定・リセット
+   ========================================================================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+  background-color: #f4f7f6;
+  color: #333;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ==========================================================================
+   2. ヘッダーのデザイン
+   ========================================================================== */
 header {
-    display: flex;
+  background-color: #ffffff;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
-ul {
-    display: flex;
+
+header h3 {
+  font-size: 1.5rem;
+  color: #2c3e50;
+  font-weight: bold;
 }
-div {
-  margin-left: auto;
-  margin-right: auto;
+
+header ul {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+}
+
+header ul li a {
+  text-decoration: none;
+  color: #7f8c8d;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+header ul li a:hover {
+  color: #3498db;
+}
+
+/* ==========================================================================
+   3. メイン・ゲーム画面のデザイン
+   ========================================================================== */
+main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+/* 中央配置のコンテナ */
+main > div {
+  background-color: #ffffff;
+  padding: 3rem 4rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  width: 100%;
+  max-width: 600px;
+}
+
+/* お題の文字（漢字） */
+.mozi {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #2c3e50;
+  margin-bottom: 2rem;
+  letter-spacing: 0.1rem;
+  /* 文字が長くなった時用の保険 */
+  word-wrap: break-word; 
+}
+
+/* 入力ボックス */
+input[type="text"] {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.5rem;
+  border: 2px solid #bdc3c7;
+  border-radius: 8px;
+  outline: none;
+  text-align: center;
+  font-family: monospace; /* タイピングが等幅で見やすくなるように設定 */
+  letter-spacing: 0.05rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* 入力欄にフォーカスが当たったときのアニメーション */
+input[type="text"]:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 8px rgba(52, 152, 219, 0.3);
 }

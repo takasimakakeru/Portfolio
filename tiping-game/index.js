@@ -22,6 +22,7 @@ function initGame() {
     const number = Math.floor(Math.random() * 15);
 currentData = mozi[number];
 target.textContent = currentData.kanji;
+document.querySelector("#roma-guide").textContent = currentData.roma[0];
 };
 input.addEventListener("input", () => {
     const nyuryokumozi = input.value;
